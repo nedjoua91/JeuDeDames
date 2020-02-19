@@ -1,0 +1,26 @@
+<html> Projet AOS </html>
+
+<button id="ajaxButton" type="button">Faire une requête</button>
+<div id="z1">
+
+</div> 
+
+<script>
+(function() {
+  var httpRequest;
+  document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+
+  function makeRequest() {
+    const Http = new XMLHttpRequest();
+    const url='http://localhost:5000';
+    Http.open('GET', url, true);
+    Http.responseType= 'text'
+    Http.onload = function() {
+      console.log(Http.responseText)
+        document.getElementById("z1").innerText = Http.responseText;
+    }
+    Http.send(null);
+
+  }
+})();
+</script>
